@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container">
+    </div>
+    <input type="color" id="color">
+    <script>
+        var sandwiches = `{ " sandwich": "hamburger" , "calories" : "260" }`;
+        var fries = `{ "fries_size" : "Large French Fries" , "calories" : "570" }`;
+
+        document.querySelector("#color");
+        
+        let mydata1 = JSON.parse(sandwiches);
+        let mydata2 = JSON.parse(fries);
+
+        document.getElementById("container").innerHTML = ` My favorite sandwich is a ${mydata1.sandwich} which has
+            approximately ${mydata1.calories} calories, along with it I enjoy eating ${mydata2.fries_size} which have
+            about ${mydata2.calories} calories ` </script>
+</body>
+
+</html>

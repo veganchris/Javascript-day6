@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>JSON example with Loop</title>
+</head>
+<body>
+ <h1>Employees</h1>
+ <div id="results"></div>
+ <script src="data.js"></script>
+ <script>
+   let mydata = JSON.parse(employees); // convert string into an object
+   for (let i = 0 ; i < mydata.length; i++) {
+     document.getElementById('results').innerHTML += `My name is ${mydata[i].firstName} and I am working as a ${mydata[i].jobTitleName}<hr>`;
+   }
+ </script>
+</body>
+</html>

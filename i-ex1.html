@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            margin-top: 5%;
+        }
+
+        #container table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        #tabID th {
+            padding: 15px 45px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <!-- javascript -->
+    <script src="employees.js"></script>
+    <script>
+        let table_emp = document.getElementById("container");
+        let human_resources = JSON.parse(employees);
+        let properties = Object.getOwnPropertyNames(human_resources[0]);
+        let count = properties.length;
+        let tab = `<table id='tabID'> <tr>`;
+        for (let i = 0; i < count; i++) {
+            tab += "<th>" + properties[i] + "</th>";
+        }
+        for (let i = 0; i < human_resources.length; i++) {
+            tab += `</tr><tr>`;
+            for (let j = 0; j < count; j++) {
+                tab +=
+                    `
+            <td>${human_resources[i][properties[j]]}
+        `
+            }
+        }
+        tab += "</tr></table>";
+        table_emp.innerHTML = tab;
+
+
+    </script>
+</body>
+
+</html>

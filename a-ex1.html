@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            text-align: center;
+            width: 30%;
+            margin: auto;
+            margin-top: 5%;
+
+
+        }
+
+        p {
+            justify-content: center;
+            object-fit: fill;
+        }
+
+        /* .read {
+            background: red;
+            color: white;
+            opacity: 0.5;
+        } */
+
+        .unread {
+            background: red;
+            color: white;
+            border: 2px solid red;
+        }
+
+        .unread img {
+            /* opacity: 0.9; */
+            padding: 5% 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <!-- javascript -->
+    <script src="books.js"></script>
+    <script>
+        let bookOut = document.getElementById("container");
+        let books = JSON.parse(allBooks);
+        console.log("books: ", books);
+        let bookTemp = "";
+        for (let i = 0; i < books.length; i++) {
+            if (books[i].read == "true") {
+                bookTemp += `<p class="read">`;
+            } else {
+                bookTemp += `<p class="unread">`;
+            }
+            bookTemp += `<img src="${books[i].cover}"><br><br>`
+
+            bookTemp += `<b>Title:</b> ${books[i].title}<br><b>Author:</b> ${books[i].author}</p><br><br>`;
+        }
+        bookOut.innerHTML = bookTemp;
+        // console.log("bookTemp: ", bookTemp);
+    </script>
+</body>
+
+</html>
